@@ -19,7 +19,7 @@ to Android Studio and everything should just build.
 The copy of the Gihub repo imported into Android Studio just fine.  I added my favorite .gitnore files and then compiled it.
 It was a completely clean build without changing a single line of code at the initial Git checkin tag.
 Since the initial build - I have taken screenshots and built a README.md file.    Now the reading and understanding
-and practice begins :-).  - jim a
+and practice begins :sweat_smile:  - jim a
 
 ### Current Studio level (27 Jan 2016):
 
