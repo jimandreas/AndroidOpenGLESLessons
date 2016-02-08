@@ -1,13 +1,25 @@
 apply plugin: 'com.android.application'
 
+// versioning from stackoverflow and Jake Wharton
+// https://plus.google.com/+JakeWharton/posts/6f5TcVPRZij
+// http://stackoverflow.com/questions/4616095/how-to-get-the-build-version-number-of-your-android-application
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 4 // bump for dogfood builds, public betas, etc.
+
+
 android {
-    compileSdkVersion 17
+    compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.learnopengles.android"
-        minSdkVersion 8
-        targetSdkVersion 17
+        minSdkVersion 16
+        targetSdkVersion 23
+
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
     }
 
     buildTypes {
