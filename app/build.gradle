@@ -29,7 +29,9 @@ android {
         }
     }
 
-    dependencies {
-        // NO DEPENDENCIES.   How about that!  :simple_smile:
-    }
+
+}
+
+dependencies {
+    // NO DEPENDENCIES.   How about that!  :simple_smile:
 }
