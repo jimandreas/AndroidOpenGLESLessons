@@ -36,37 +36,37 @@ For more information on these samples please refer to the links above.
 
 ## app Table Of Contents
 
-<img src="Screenshots/TableOfContents.png width = 200)
+<img src="Screenshots/TableOfContents.png width = 200>
 
 ## Lesson 1
 
-<img src="Screenshots/Lesson1.png" width = 200)
+<img src="Screenshots/Lesson1.png" width = 200>
 
 ## Lesson 2
 
-<img src="Screenshots/Lesson2.png" width = 200)
+<img src="Screenshots/Lesson2.png" width = 200>
 
 ## Lesson 3
 
-<img src="Screenshots/Lesson3.png" width = 200)
+<img src="Screenshots/Lesson3.png" width = 200>
 
 ## Lesson 4
 
-<img src="Screenshots/Lesson4.png" width = 200)
+<img src="Screenshots/Lesson4.png" width = 200>
 
 ## Lesson 5
 
-<img src="Screenshots/Lesson5.png" width = 200)
+<img src="Screenshots/Lesson5.png" width = 200>
 
 ## Lesson 6
 
-<img src="Screenshots/Lesson6.png" width = 200)
+<img src="Screenshots/Lesson6.png" width = 200>
 
 ## Lesson 7
 
-<img src="Screenshots/Lesson7.png" width = 200)
+<img src="Screenshots/Lesson7.png" width = 200>
 
 ## Lesson 8
 
-<img src="Screenshots/Lesson8.png" width = 200)
+<img src="Screenshots/Lesson8.png" width = 200>
 
