@@ -34,9 +34,9 @@ stripped out.
 
 For more information on these samples please refer to the links above.
 
-## app Table Of Contents
+## Table Of Contents
 
-<img src="Screenshots/TableOfContents.png width = 200>
+<img src="Screenshots/TOC.png" width = 200>
 
 ## Lesson 1
 
