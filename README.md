@@ -36,37 +36,37 @@ For more information on these samples please refer to the links above.
 
 ## app Table Of Contents
 
-![TableOfContents_goes_here](./Screenshots/TableOfContents.png width = 200)
+<img src="Screenshots/TableOfContents.png width = 200)
 
 ## Lesson 1
 
-![L1_goes_here](./Screenshots/Lesson1.png width = 200)
+<img src="Screenshots/Lesson1.png" width = 200)
 
 ## Lesson 2
 
-![L2_goes_here](./Screenshots/Lesson2.png width = 200)
+<img src="Screenshots/Lesson2.png" width = 200)
 
 ## Lesson 3
 
-![L3_goes_here](./Screenshots/Lesson3.png width = 200)
+<img src="Screenshots/Lesson3.png" width = 200)
 
 ## Lesson 4
 
-![L4_goes_here](./Screenshots/Lesson4.png width = 200)
+<img src="Screenshots/Lesson4.png" width = 200)
 
 ## Lesson 5
 
-![L5_goes_here](./Screenshots/Lesson5.png width = 200)
+<img src="Screenshots/Lesson5.png" width = 200)
 
 ## Lesson 6
 
-![L6_goes_here](./Screenshots/Lesson6.png width = 200)
+<img src="Screenshots/Lesson6.png" width = 200)
 
 ## Lesson 7
 
-![L7_goes_here](./Screenshots/Lesson7.png width = 200)
+<img src="Screenshots/Lesson7.png" width = 200)
 
 ## Lesson 8
 
-![L8_goes_here](./Screenshots/Lesson8.png width = 200)
+<img src="Screenshots/Lesson8.png" width = 200)
 
