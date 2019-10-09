@@ -19,9 +19,9 @@ It was a completely clean build without changing a single line of code at the in
 Since the initial build - I have taken screenshots and built a README.md file.    Now the reading and understanding
 and practice begins :sweat_smile:  - jim a
 
-### Current Studio level (21 Nov 2016):
+### Current Studio level (9 October 2019):
 
-Android Studio 2.2.2
+Android Studio 3.5.+
 
 ## License
 
