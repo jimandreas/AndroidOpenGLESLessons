@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.learnopengles.android">
 
     <!-- We require OpenGL ES 2.0 -->
@@ -9,8 +10,10 @@
 
     <!--TODO: add the recommended ACTION-VIEW stuff-->
     <application
+        android:name="com.learnopengles.LearnOpenglesApplication"
         android:icon="@drawable/icon"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <!--
                Don't override application title. See http://stackoverflow.com/questions/3462431/how-to-name-android-application
