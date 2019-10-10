@@ -16,8 +16,13 @@ to Android Studio and everything should just build.
 
 The copy of the Gihub repo imported into Android Studio just fine.  I added my favorite .gitnore files and then compiled it.
 It was a completely clean build without changing a single line of code at the initial Git checkin tag.
-Since the initial build - I have taken screenshots and built a README.md file.    Now the reading and understanding
-and practice begins :sweat_smile:  - jim a
+Since the initial build - I have taken screenshots and built a README.md file.
+
+### Changes 09-2019:
+
+Converted the implementations in Lessons 1 through 8 to Kotlin.   The LiveWallpaper implementation
+remains coded in Java.   A Kotlin conversion of these folders is left as an exercise for the developer.
+Let me know if you want to pull them into this repo via a pull request.
 
 ### Current Studio level (9 October 2019):
 
