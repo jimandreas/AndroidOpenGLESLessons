@@ -146,8 +146,8 @@ class LessonEightRenderer
         val fragmentShader = RawResourceReader.readTextFileFromRawResource(lessonEightActivity,
                 R.raw.per_pixel_fragment_shader_no_tex)
 
-        val vertexShaderHandle = ShaderHelper.compileShader(GLES20.GL_VERTEX_SHADER, vertexShader)
-        val fragmentShaderHandle = ShaderHelper.compileShader(GLES20.GL_FRAGMENT_SHADER, fragmentShader)
+        val vertexShaderHandle = ShaderHelper.compileShader(GLES20.GL_VERTEX_SHADER, vertexShader!!)
+        val fragmentShaderHandle = ShaderHelper.compileShader(GLES20.GL_FRAGMENT_SHADER, fragmentShader!!)
 
         program = ShaderHelper.createAndLinkProgram(vertexShaderHandle, fragmentShaderHandle, arrayOf(POSITION_ATTRIBUTE, NORMAL_ATTRIBUTE, COLOR_ATTRIBUTE))
 

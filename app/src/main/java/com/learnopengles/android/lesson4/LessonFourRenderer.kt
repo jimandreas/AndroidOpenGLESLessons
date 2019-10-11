@@ -262,8 +262,8 @@ class LessonFourRenderer(private val mActivityContext: Context) : GLSurfaceView.
         // view matrix. In OpenGL 2, we can keep track of these matrices separately if we choose.
         Matrix.setLookAtM(mViewMatrix, 0, eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ)
 
-        val vertexShader = vertexShader
-        val fragmentShader = fragmentShader
+        val vertexShader = vertexShader!!
+        val fragmentShader = fragmentShader!!
 
         val vertexShaderHandle = ShaderHelper.compileShader(GLES20.GL_VERTEX_SHADER, vertexShader)
         val fragmentShaderHandle = ShaderHelper.compileShader(GLES20.GL_FRAGMENT_SHADER, fragmentShader)
@@ -275,8 +275,8 @@ class LessonFourRenderer(private val mActivityContext: Context) : GLSurfaceView.
         val pointVertexShader = RawResourceReader.readTextFileFromRawResource(mActivityContext, R.raw.point_vertex_shader)
         val pointFragmentShader = RawResourceReader.readTextFileFromRawResource(mActivityContext, R.raw.point_fragment_shader)
 
-        val pointVertexShaderHandle = ShaderHelper.compileShader(GLES20.GL_VERTEX_SHADER, pointVertexShader)
-        val pointFragmentShaderHandle = ShaderHelper.compileShader(GLES20.GL_FRAGMENT_SHADER, pointFragmentShader)
+        val pointVertexShaderHandle = ShaderHelper.compileShader(GLES20.GL_VERTEX_SHADER, pointVertexShader!!)
+        val pointFragmentShaderHandle = ShaderHelper.compileShader(GLES20.GL_FRAGMENT_SHADER, pointFragmentShader!!)
         mPointProgramHandle = ShaderHelper.createAndLinkProgram(pointVertexShaderHandle, pointFragmentShaderHandle,
                 arrayOf("a_Position"))
 
