@@ -1,5 +1,6 @@
 package com.learnopengles.android.livewallpaper;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
@@ -94,6 +95,7 @@ public abstract class GLWallpaperService extends WallpaperService {
 			rendererHasBeenSet = true;
 		}
 		
+		@SuppressLint({"ObsoleteSdkInt", "LogNotTimber"})
 		protected void setPreserveEGLContextOnPause(boolean preserve) {
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 				if (LoggerConfig.ON) {

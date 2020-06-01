@@ -13,12 +13,12 @@ def versionBuild = 6 // bump for dogfood builds, public betas, etc.
 
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "com.learnopengles.android"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
 
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
@@ -41,10 +41,9 @@ dependencies {
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-
-    androidTestImplementation "androidx.test:runner:$androidXTestVersion"
-    androidTestImplementation "androidx.test.ext:junit:1.1.2-alpha02"
-    androidTestImplementation "androidx.test:rules:1.3.0-alpha02"
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0-alpha02"
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+    androidTestImplementation "androidx.test:runner:1.3.0-rc01"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0-rc01"
     testImplementation "com.google.truth:truth:1.0"
 }

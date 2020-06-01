@@ -1,3 +1,4 @@
+
 package com.learnopengles.android.switchinglivewallpaper;
 
 import java.io.Writer;
@@ -12,6 +13,7 @@ import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
