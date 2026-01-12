@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.learnopengles.android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- We require OpenGL ES 2.0 -->
     <uses-feature
@@ -19,7 +18,8 @@
                Don't override application title. See http://stackoverflow.com/questions/3462431/how-to-name-android-application
               We will set this in code instead.
         -->
-        <activity android:name="TableOfContents" >
+        <activity android:name="TableOfContents"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,7 +54,8 @@
         <service
             android:name=".livewallpaper.LessonThreeWallpaperService"
             android:label="@string/lesson_three_wallpaper_1"
-            android:permission="android.permission.BIND_WALLPAPER" >
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
@@ -66,7 +67,8 @@
         <service
             android:name=".rbgrnlivewallpaper.LessonThreeWallpaperService"
             android:label="@string/lesson_three_wallpaper_2"
-            android:permission="android.permission.BIND_WALLPAPER" >
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
@@ -78,7 +80,8 @@
         <service
             android:name=".switchinglivewallpaper.LessonThreeWallpaperService"
             android:label="@string/lesson_three_wallpaper_3"
-            android:permission="android.permission.BIND_WALLPAPER" >
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
