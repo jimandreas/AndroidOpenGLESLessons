@@ -30,8 +30,9 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.opengl.GLSurfaceView.Renderer;
 import android.service.wallpaper.WallpaperService;
-import android.util.Log;
 import android.view.SurfaceHolder;
+
+import timber.log.Timber;
 
 import com.learnopengles.android.rbgrnlivewallpaper.BaseConfigChooser.ComponentSizeChooser;
 import com.learnopengles.android.rbgrnlivewallpaper.BaseConfigChooser.SimpleEGLConfigChooser;
@@ -39,7 +40,6 @@ import com.learnopengles.android.rbgrnlivewallpaper.BaseConfigChooser.SimpleEGLC
 // Original code provided by Robert Green
 // http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers
 public class GLWallpaperService extends WallpaperService {
-	private static final String TAG = "GLWallpaperService";
 
 	@Override
 	public Engine onCreateEngine() {
@@ -95,14 +95,14 @@ public class GLWallpaperService extends WallpaperService {
 
 		@Override
 		public void onSurfaceCreated(SurfaceHolder holder) {
-			Log.d(TAG, "onSurfaceCreated()");
+			Timber.d("onSurfaceCreated()");
 			mGLThread.surfaceCreated(holder);
 			super.onSurfaceCreated(holder);
 		}
 
 		@Override
 		public void onSurfaceDestroyed(SurfaceHolder holder) {
-			Log.d(TAG, "onSurfaceDestroyed()");
+			Timber.d("onSurfaceDestroyed()");
 			mGLThread.surfaceDestroyed();
 			super.onSurfaceDestroyed(holder);
 		}
@@ -229,7 +229,7 @@ class LogWriter extends Writer {
 
 	private void flushBuilder() {
 		if (mBuilder.length() > 0) {
-			Log.v("GLSurfaceView", mBuilder.toString());
+			Timber.v(mBuilder.toString());
 			mBuilder.delete(0, mBuilder.length());
 		}
 	}
@@ -556,7 +556,7 @@ class GLThread extends Thread {
 	public void run() {
 		setName("GLThread " + getId());
 		if (LOG_THREADS) {
-			Log.i("GLThread", "starting tid=" + getId());
+			Timber.i("GLThread starting tid=%s", getId());
 		}
 
 		try {
@@ -663,7 +663,7 @@ class GLThread extends Thread {
 						// By design, this is the only place where we wait().
 
 						if (LOG_THREADS) {
-							Log.i("GLThread", "waiting tid=" + getId());
+							Timber.i("GLThread waiting tid=%s", getId());
 						}
 						sGLThreadManager.wait();
 					}
@@ -758,7 +758,7 @@ class GLThread extends Thread {
 		mHolder = holder;
 		synchronized (sGLThreadManager) {
 			if (LOG_THREADS) {
-				Log.i("GLThread", "surfaceCreated tid=" + getId());
+				Timber.i("GLThread surfaceCreated tid=%s", getId());
 			}
 			mHasSurface = true;
 			sGLThreadManager.notifyAll();
@@ -768,7 +768,7 @@ class GLThread extends Thread {
 	public void surfaceDestroyed() {
 		synchronized (sGLThreadManager) {
 			if (LOG_THREADS) {
-				Log.i("GLThread", "surfaceDestroyed tid=" + getId());
+				Timber.i("GLThread surfaceDestroyed tid=%s", getId());
 			}
 			mHasSurface = false;
 			sGLThreadManager.notifyAll();
@@ -850,7 +850,7 @@ class GLThread extends Thread {
 
 		public synchronized void threadExiting(GLThread thread) {
 			if (LOG_THREADS) {
-				Log.i("GLThread", "exiting tid=" + thread.getId());
+				Timber.i("GLThread exiting tid=%s", thread.getId());
 			}
 			thread.mDone = true;
 			if (mEglOwner == thread) {

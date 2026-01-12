@@ -18,16 +18,16 @@ import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
 import android.service.wallpaper.WallpaperService;
-import android.util.Log;
 import android.view.SurfaceHolder;
 
 import com.learnopengles.android.util.LoggerConfig;
+
+import timber.log.Timber;
 import com.learnopengles.android.switchinglivewallpaper.BaseConfigChooser.ComponentSizeChooser;
 import com.learnopengles.android.switchinglivewallpaper.BaseConfigChooser.SimpleEGLConfigChooser;
 
 public abstract class GLWallpaperService extends WallpaperService {
-	private static final String TAG = "GLWallpaperService";
-	
+
 	interface OpenGLEngine {
 		void setEGLContextClientVersion(int version);
 		
@@ -36,20 +36,19 @@ public abstract class GLWallpaperService extends WallpaperService {
 	
 	public class GLSurfaceViewEngine extends Engine implements OpenGLEngine {
 		class WallpaperGLSurfaceView extends GLSurfaceView {
-			private static final String TAG = "WallpaperGLSurfaceView";
 
 			WallpaperGLSurfaceView(Context context) {
 				super(context);
 
 				if (LoggerConfig.ON) {
-					Log.d(TAG, "WallpaperGLSurfaceView(" + context + ")");
+					Timber.d("WallpaperGLSurfaceView(%s)", context);
 				}
 			}
 
 			@Override
 			public SurfaceHolder getHolder() {
 				if (LoggerConfig.ON) {
-					Log.d(TAG, "getHolder(): returning " + getSurfaceHolder());
+					Timber.d("getHolder(): returning %s", getSurfaceHolder());
 				}
 
 				return getSurfaceHolder();
@@ -57,22 +56,20 @@ public abstract class GLWallpaperService extends WallpaperService {
 
 			public void onDestroy() {
 				if (LoggerConfig.ON) {
-					Log.d(TAG, "onDestroy()");
+					Timber.d("onDestroy()");
 				}
 
 				super.onDetachedFromWindow();
 			}
 		}
 
-		private static final String TAG = "GLSurfaceViewEngine";
-
 		private WallpaperGLSurfaceView glSurfaceView;
-		private boolean rendererHasBeenSet;		
+		private boolean rendererHasBeenSet;
 
 		@Override
 		public void onCreate(SurfaceHolder surfaceHolder) {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "onCreate(" + surfaceHolder + ")");
+				Timber.d("onCreate(%s)", surfaceHolder);
 			}
 
 			super.onCreate(surfaceHolder);
@@ -83,7 +80,7 @@ public abstract class GLWallpaperService extends WallpaperService {
 		@Override
 		public void onVisibilityChanged(boolean visible) {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "onVisibilityChanged(" + visible + ")");
+				Timber.d("onVisibilityChanged(%s)", visible);
 			}
 
 			super.onVisibilityChanged(visible);
@@ -91,25 +88,25 @@ public abstract class GLWallpaperService extends WallpaperService {
 			if (rendererHasBeenSet) {
 				if (visible) {
 					glSurfaceView.onResume();
-				} else {					
-					glSurfaceView.onPause();				
+				} else {
+					glSurfaceView.onPause();
 				}
 			}
-		}		
+		}
 
 		@Override
 		public void onDestroy() {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "onDestroy()");
+				Timber.d("onDestroy()");
 			}
 
 			super.onDestroy();
 			glSurfaceView.onDestroy();
 		}
-		
+
 		public void setRenderer(Renderer renderer) {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "setRenderer(" + renderer + ")");
+				Timber.d("setRenderer(%s)", renderer);
 			}
 
 			glSurfaceView.setRenderer(renderer);
@@ -118,7 +115,7 @@ public abstract class GLWallpaperService extends WallpaperService {
 
 		public void setEGLContextClientVersion(int version) {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "setEGLContextClientVersion(" + version + ")");
+				Timber.d("setEGLContextClientVersion(%s)", version);
 			}
 
 			glSurfaceView.setEGLContextClientVersion(version);
@@ -174,14 +171,14 @@ public abstract class GLWallpaperService extends WallpaperService {
 
 		@Override
 		public void onSurfaceCreated(SurfaceHolder holder) {
-			Log.d(TAG, "onSurfaceCreated()");
+			Timber.d("onSurfaceCreated()");
 			mGLThread.surfaceCreated(holder);
 			super.onSurfaceCreated(holder);
 		}
 
 		@Override
 		public void onSurfaceDestroyed(SurfaceHolder holder) {
-			Log.d(TAG, "onSurfaceDestroyed()");
+			Timber.d("onSurfaceDestroyed()");
 			mGLThread.surfaceDestroyed();
 			super.onSurfaceDestroyed(holder);
 		}
@@ -308,7 +305,7 @@ class LogWriter extends Writer {
 
 	private void flushBuilder() {
 		if (mBuilder.length() > 0) {
-			Log.v("GLSurfaceView", mBuilder.toString());
+			Timber.v(mBuilder.toString());
 			mBuilder.delete(0, mBuilder.length());
 		}
 	}
@@ -635,7 +632,7 @@ class GLThread extends Thread {
 	public void run() {
 		setName("GLThread " + getId());
 		if (LOG_THREADS) {
-			Log.i("GLThread", "starting tid=" + getId());
+			Timber.i("GLThread starting tid=%s", getId());
 		}
 
 		try {
@@ -742,7 +739,7 @@ class GLThread extends Thread {
 						// By design, this is the only place where we wait().
 
 						if (LOG_THREADS) {
-							Log.i("GLThread", "waiting tid=" + getId());
+							Timber.i("GLThread waiting tid=%s", getId());
 						}
 						sGLThreadManager.wait();
 					}
@@ -837,7 +834,7 @@ class GLThread extends Thread {
 		mHolder = holder;
 		synchronized (sGLThreadManager) {
 			if (LOG_THREADS) {
-				Log.i("GLThread", "surfaceCreated tid=" + getId());
+				Timber.i("GLThread surfaceCreated tid=%s", getId());
 			}
 			mHasSurface = true;
 			sGLThreadManager.notifyAll();
@@ -847,7 +844,7 @@ class GLThread extends Thread {
 	public void surfaceDestroyed() {
 		synchronized (sGLThreadManager) {
 			if (LOG_THREADS) {
-				Log.i("GLThread", "surfaceDestroyed tid=" + getId());
+				Timber.i("GLThread surfaceDestroyed tid=%s", getId());
 			}
 			mHasSurface = false;
 			sGLThreadManager.notifyAll();
@@ -929,7 +926,7 @@ class GLThread extends Thread {
 
 		public synchronized void threadExiting(GLThread thread) {
 			if (LOG_THREADS) {
-				Log.i("GLThread", "exiting tid=" + thread.getId());
+				Timber.i("GLThread exiting tid=%s", thread.getId());
 			}
 			thread.mDone = true;
 			if (mEglOwner == thread) {

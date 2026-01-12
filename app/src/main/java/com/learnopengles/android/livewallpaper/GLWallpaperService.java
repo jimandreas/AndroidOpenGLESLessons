@@ -6,29 +6,29 @@ import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
 import android.os.Build;
 import android.service.wallpaper.WallpaperService;
-import android.util.Log;
 import android.view.SurfaceHolder;
 
 import com.learnopengles.android.util.LoggerConfig;
+
+import timber.log.Timber;
 
 public abstract class GLWallpaperService extends WallpaperService {
 
 	public class GLEngine extends Engine {
 		class WallpaperGLSurfaceView extends GLSurfaceView {
-			private static final String TAG = "WallpaperGLSurfaceView";
 
 			WallpaperGLSurfaceView(Context context) {
 				super(context);
 
 				if (LoggerConfig.ON) {
-					Log.d(TAG, "WallpaperGLSurfaceView(" + context + ")");
+					Timber.d("WallpaperGLSurfaceView(%s)", context);
 				}
 			}
 
 			@Override
 			public SurfaceHolder getHolder() {
 				if (LoggerConfig.ON) {
-					Log.d(TAG, "getHolder(): returning " + getSurfaceHolder());
+					Timber.d("getHolder(): returning %s", getSurfaceHolder());
 				}
 
 				return getSurfaceHolder();
@@ -36,22 +36,20 @@ public abstract class GLWallpaperService extends WallpaperService {
 
 			public void onDestroy() {
 				if (LoggerConfig.ON) {
-					Log.d(TAG, "onDestroy()");
+					Timber.d("onDestroy()");
 				}
 
 				super.onDetachedFromWindow();
 			}
 		}
 
-		private static final String TAG = "GLEngine";
-
 		private WallpaperGLSurfaceView glSurfaceView;
-		private boolean rendererHasBeenSet;		
+		private boolean rendererHasBeenSet;
 
 		@Override
 		public void onCreate(SurfaceHolder surfaceHolder) {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "onCreate(" + surfaceHolder + ")");
+				Timber.d("onCreate(%s)", surfaceHolder);
 			}
 
 			super.onCreate(surfaceHolder);
@@ -62,7 +60,7 @@ public abstract class GLWallpaperService extends WallpaperService {
 		@Override
 		public void onVisibilityChanged(boolean visible) {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "onVisibilityChanged(" + visible + ")");
+				Timber.d("onVisibilityChanged(%s)", visible);
 			}
 
 			super.onVisibilityChanged(visible);
@@ -70,45 +68,45 @@ public abstract class GLWallpaperService extends WallpaperService {
 			if (rendererHasBeenSet) {
 				if (visible) {
 					glSurfaceView.onResume();
-				} else {					
-					glSurfaceView.onPause();														
+				} else {
+					glSurfaceView.onPause();
 				}
 			}
-		}		
+		}
 
 		@Override
 		public void onDestroy() {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "onDestroy()");
+				Timber.d("onDestroy()");
 			}
 
 			super.onDestroy();
 			glSurfaceView.onDestroy();
 		}
-		
+
 		protected void setRenderer(Renderer renderer) {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "setRenderer(" + renderer + ")");
+				Timber.d("setRenderer(%s)", renderer);
 			}
 
 			glSurfaceView.setRenderer(renderer);
 			rendererHasBeenSet = true;
 		}
-		
-		@SuppressLint({"ObsoleteSdkInt", "LogNotTimber"})
+
+		@SuppressLint("ObsoleteSdkInt")
 		protected void setPreserveEGLContextOnPause(boolean preserve) {
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 				if (LoggerConfig.ON) {
-					Log.d(TAG, "setPreserveEGLContextOnPause(" + preserve + ")");
+					Timber.d("setPreserveEGLContextOnPause(%s)", preserve);
 				}
-	
+
 				glSurfaceView.setPreserveEGLContextOnPause(preserve);
 			}
-		}		
+		}
 
 		protected void setEGLContextClientVersion(int version) {
 			if (LoggerConfig.ON) {
-				Log.d(TAG, "setEGLContextClientVersion(" + version + ")");
+				Timber.d("setEGLContextClientVersion(%s)", version);
 			}
 
 			glSurfaceView.setEGLContextClientVersion(version);

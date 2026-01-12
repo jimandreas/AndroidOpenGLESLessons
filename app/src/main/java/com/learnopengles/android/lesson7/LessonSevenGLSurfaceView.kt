@@ -23,13 +23,18 @@ class LessonSevenGLSurfaceView : GLSurfaceView {
             val x = event.x
             val y = event.y
 
-            if (event.action == MotionEvent.ACTION_MOVE) {
-                if (mRenderer != null) {
-                    val deltaX = (x - mPreviousX) / mDensity / 2f
-                    val deltaY = (y - mPreviousY) / mDensity / 2f
+            when (event.action) {
+                MotionEvent.ACTION_MOVE -> {
+                    if (mRenderer != null) {
+                        val deltaX = (x - mPreviousX) / mDensity / 2f
+                        val deltaY = (y - mPreviousY) / mDensity / 2f
 
-                    mRenderer!!.mDeltaX += deltaX
-                    mRenderer!!.mDeltaY += deltaY
+                        mRenderer!!.mDeltaX += deltaX
+                        mRenderer!!.mDeltaY += deltaY
+                    }
+                }
+                MotionEvent.ACTION_UP -> {
+                    performClick()
                 }
             }
 
@@ -40,6 +45,11 @@ class LessonSevenGLSurfaceView : GLSurfaceView {
         } else {
             return super.onTouchEvent(event)
         }
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
+        return true
     }
 
     // Hides superclass method.

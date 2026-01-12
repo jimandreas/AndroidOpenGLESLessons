@@ -14,12 +14,12 @@ val versionBuild = 6 // bump for dogfood builds, public betas, etc.
 
 android {
     namespace = "com.learnopengles.android"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.learnopengles.android"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
 
         versionCode = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
