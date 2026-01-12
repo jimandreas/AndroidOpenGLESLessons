@@ -82,3 +82,18 @@ Three wallpaper implementations exist in separate packages (`livewallpaper/`, `r
 - **Compile/Target SDK:** 34
 - **Min SDK:** 21
 - **Java/Kotlin JVM Target:** 17
+- **Build Scripts:** Kotlin DSL (`.gradle.kts`)
+- **Version Catalog:** `gradle/libs.versions.toml`
+
+### Gradle Files Structure
+
+```
+├── build.gradle.kts          # Root build file
+├── settings.gradle.kts       # Project settings
+├── gradle/
+│   └── libs.versions.toml    # Version catalog
+└── app/
+    └── build.gradle.kts      # App module build file
+```
+
+Dependencies are managed through the version catalog. To add/update dependencies, edit `gradle/libs.versions.toml`.
