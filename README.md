@@ -6,8 +6,6 @@ Original Github location:  https://github.com/learnopengles/Learn-OpenGLES-Tutor
 
 This project is a repository for the lessons and tutorials over at http://www.learnopengles.com/
 
-The compiled app can be downloaded from the Android market at https://market.android.com/details?id=com.learnopengles.android
-
 ## What has changed:
 
 The samples have been reworked so that they all live happily (more or less) in one Android Studio project.
@@ -24,9 +22,14 @@ Converted the implementations in Lessons 1 through 8 to Kotlin.   The LiveWallpa
 remains coded in Java.   A Kotlin conversion of these folders is left as an exercise for the developer.
 Let me know if you want to pull them into this repo via a pull request.
 
-### Current Studio level (9 October 2019):
+### Changes 01-2026
 
-Android Studio 3.5.+
+With help from Claude Opus 4.5 - the build system is renovated to *.kts and
+all library versions are updated.
+
+### Current Studio level (12 Jan 2026):
+
+Android Studio Otter 2 Feature Drop | 2025.2.2 Patch 1
 
 ## License
 
