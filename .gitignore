@@ -36,6 +36,9 @@ local.properties
 # Gradle cache
 .gradle
 
+# Kotlin
+.kotlin
+
 # Claude
 .claude
 tmpclaude-*-cwd

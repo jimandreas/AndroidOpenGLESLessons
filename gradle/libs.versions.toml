@@ -1,14 +1,14 @@
 [versions]
-agp = "8.7.3"
-kotlin = "2.0.21"
+agp = "8.13.2"
+kotlin = "2.3.0"
 timber = "5.0.1"
 
 # Testing
 junit = "4.13.2"
-hamcrest = "2.2"
-truth = "1.4.4"
-androidxTestRunner = "1.6.2"
-espresso = "3.6.1"
+hamcrest = "3.0"
+truth = "1.4.5"
+androidxTestRunner = "1.7.0"
+espresso = "3.7.0"
 
 [libraries]
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
