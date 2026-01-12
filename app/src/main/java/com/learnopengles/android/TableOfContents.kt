@@ -1,13 +1,13 @@
-@file:Suppress("UNUSED_CHANGED_VALUE")
+@file:Suppress("UNUSED_CHANGED_VALUE", "AssignedValueIsNeverRead")
 
 package com.learnopengles.android
 
 import android.app.Activity
-import android.app.ListActivity
 import android.content.Intent
 import android.os.Bundle
 import android.util.SparseArray
 import android.widget.AdapterView.OnItemClickListener
+import android.widget.ListView
 import android.widget.SimpleAdapter
 import com.learnopengles.android.lesson1.LessonOneActivity
 import com.learnopengles.android.lesson2.LessonTwoActivity
@@ -19,12 +19,14 @@ import com.learnopengles.android.lesson7.LessonSevenActivity
 import com.learnopengles.android.lesson8.LessonEightActivity
 import java.util.*
 
-class TableOfContents : ListActivity() {
+class TableOfContents : Activity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTitle(R.string.toc)
         setContentView(R.layout.table_of_contents)
+
+        val listView = findViewById<ListView>(R.id.list_view)
 
         // Initialize data
         val arrayList = ArrayList<Map<String, Any>>()
@@ -94,7 +96,7 @@ class TableOfContents : ListActivity() {
                 R.layout.toc_item,
                 arrayOf(ITEM_IMAGE, ITEM_TITLE, ITEM_SUBTITLE),
                 intArrayOf(R.id.Image, R.id.Title, R.id.SubTitle))
-        listAdapter = dataAdapter
+        listView.adapter = dataAdapter
 
         listView.onItemClickListener = OnItemClickListener { _, _, position, _ ->
             val activityToLaunch = activityMapping.get(position)

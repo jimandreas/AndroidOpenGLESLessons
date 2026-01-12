@@ -27,18 +27,22 @@ android {
         versionName = "2.0.1"
     }
     signingConfigs {
-        create("release") {
-            storeFile = file("C:/a/j/bammellab/keystoresBammellab.jks")
-            storePassword = localProperties.getProperty("RELEASE_STORE_PASSWORD")
-            keyAlias = localProperties.getProperty("RELEASE_KEY_ALIAS")
-            keyPassword = localProperties.getProperty("RELEASE_KEY_PASSWORD")
+        val storePassword = localProperties.getProperty("RELEASE_STORE_PASSWORD")
+        val keyAlias = localProperties.getProperty("RELEASE_KEY_ALIAS")
+        val keyPassword = localProperties.getProperty("RELEASE_KEY_PASSWORD")
+        if (storePassword != null && keyAlias != null && keyPassword != null) {
+            create("release") {
+                storeFile = file("C:/a/j/bammellab/keystoresBammellab.jks")
+                this.storePassword = storePassword
+                this.keyAlias = keyAlias
+                this.keyPassword = keyPassword
+            }
         }
     }
 
-
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.findByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

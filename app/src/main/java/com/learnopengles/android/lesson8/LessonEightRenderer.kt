@@ -354,7 +354,7 @@ class LessonEightRenderer
                 }
             } catch (t: Throwable) {
                 Timber.e(t, "Error while building HeightMap")
-                errorHandler.handleError(ErrorType.BUFFER_CREATION_ERROR, t.localizedMessage)
+                errorHandler.handleError(ErrorType.BUFFER_CREATION_ERROR, t.localizedMessage ?: "Unknown error")
             }
 
         }

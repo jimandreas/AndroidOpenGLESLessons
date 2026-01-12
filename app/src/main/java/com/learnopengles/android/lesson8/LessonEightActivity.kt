@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
 import android.os.Bundle
-import android.util.DisplayMetrics
 
 class LessonEightActivity : Activity() {
     private lateinit var glSurfaceView: LessonEightGLSurfaceView
@@ -18,7 +17,7 @@ class LessonEightActivity : Activity() {
         setContentView(glSurfaceView)
 
         // Check if the system supports OpenGL ES 2.0.
-        val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val activityManager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
         val configurationInfo = activityManager.deviceConfigurationInfo
         val supportsEs2 = configurationInfo.reqGlEsVersion >= 0x20000
 
@@ -26,12 +25,10 @@ class LessonEightActivity : Activity() {
             // Request an OpenGL ES 2.0 compatible context.
             glSurfaceView.setEGLContextClientVersion(2)
 
-            val displayMetrics = DisplayMetrics()
-            windowManager.defaultDisplay.getMetrics(displayMetrics)
 
             // Set the renderer to our demo renderer, defined below.
             renderer = LessonEightRenderer(this, glSurfaceView)
-            glSurfaceView.setRenderer(renderer!!, displayMetrics.density)
+            glSurfaceView.setRenderer(renderer!!, resources.displayMetrics.density)
         } else {
             // This is where you could create an OpenGL ES 1.x compatible
             // renderer if you wanted to support both ES 1 and ES 2.

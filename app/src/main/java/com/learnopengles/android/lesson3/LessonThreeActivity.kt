@@ -16,7 +16,7 @@ class LessonThreeActivity : Activity() {
         mGLSurfaceView = GLSurfaceView(this)
 
         // Check if the system supports OpenGL ES 2.0.
-        val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val activityManager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
         val configurationInfo = activityManager.deviceConfigurationInfo
         val supportsEs2 = configurationInfo.reqGlEsVersion >= 0x20000
 

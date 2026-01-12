@@ -488,7 +488,7 @@ class LessonSevenRenderer(
         }
     }
 
-    internal abstract inner class Cubes {
+    internal abstract class Cubes {
         internal abstract fun render()
 
         internal abstract fun release()
@@ -564,7 +564,7 @@ class LessonSevenRenderer(
             mCubeTextureCoordinates = buffers[2]
         }
 
-        public override fun render() {
+        override fun render() {
             // Pass in the position information
             GLES20.glEnableVertexAttribArray(mPositionHandle)
             GLES20.glVertexAttribPointer(mPositionHandle, POSITION_DATA_SIZE, GLES20.GL_FLOAT, false, 0, mCubePositions)
@@ -582,7 +582,7 @@ class LessonSevenRenderer(
             GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mActualCubeFactor * mActualCubeFactor * mActualCubeFactor * 36)
         }
 
-        public override fun release() {
+        override fun release() {
             mCubePositions!!.limit(0)
             mCubePositions = null
             mCubeNormals!!.limit(0)
@@ -599,7 +599,7 @@ class LessonSevenRenderer(
             mCubeBuffer = getInterleavedBuffer(cubePositions, cubeNormals, cubeTextureCoordinates, generatedCubeFactor)
         }
 
-        public override fun render() {
+        override fun render() {
             val stride = (POSITION_DATA_SIZE + NORMAL_DATA_SIZE + TEXTURE_COORDINATE_DATA_SIZE) * BYTES_PER_FLOAT
 
             // Pass in the position information
@@ -622,7 +622,7 @@ class LessonSevenRenderer(
             GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mActualCubeFactor * mActualCubeFactor * mActualCubeFactor * 36)
         }
 
-        public override fun release() {
+        override fun release() {
             mCubeBuffer!!.limit(0)
             mCubeBuffer = null
         }
@@ -636,9 +636,9 @@ class LessonSevenRenderer(
         init {
             val floatBuffers = getBuffers(cubePositions, cubeNormals, cubeTextureCoordinates, generatedCubeFactor)
 
-            val cubePositionsBuffer: FloatBuffer? = floatBuffers[0]
-            val cubeNormalsBuffer: FloatBuffer? = floatBuffers[1]
-            val cubeTextureCoordinatesBuffer: FloatBuffer? = floatBuffers[2]
+            val cubePositionsBuffer: FloatBuffer = floatBuffers[0]
+            val cubeNormalsBuffer: FloatBuffer = floatBuffers[1]
+            val cubeTextureCoordinatesBuffer: FloatBuffer = floatBuffers[2]
 
             // Second, copy these buffers into OpenGL's memory. After, we don't need to keep the client-side buffers around.
             val buffers = IntArray(3)
@@ -665,7 +665,7 @@ class LessonSevenRenderer(
             cubeTextureCoordinatesBuffer.limit(0)
         }
 
-        public override fun render() {
+        override fun render() {
             // Pass in the position information
             GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, mCubePositionsBufferIdx)
             GLES20.glEnableVertexAttribArray(mPositionHandle)
@@ -689,7 +689,7 @@ class LessonSevenRenderer(
             GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mActualCubeFactor * mActualCubeFactor * mActualCubeFactor * 36)
         }
 
-        public override fun release() {
+        override fun release() {
             // Delete buffers from OpenGL's memory
             val buffersToDelete = intArrayOf(mCubePositionsBufferIdx, mCubeNormalsBufferIdx, mCubeTexCoordsBufferIdx)
             GLES20.glDeleteBuffers(buffersToDelete.size, buffersToDelete, 0)
@@ -700,7 +700,7 @@ class LessonSevenRenderer(
         private val mCubeBufferIdx: Int
 
         init {
-            val cubeBuffer: FloatBuffer? = getInterleavedBuffer(cubePositions, cubeNormals, cubeTextureCoordinates, generatedCubeFactor)
+            val cubeBuffer: FloatBuffer = getInterleavedBuffer(cubePositions, cubeNormals, cubeTextureCoordinates, generatedCubeFactor)
 
             // Second, copy these buffers into OpenGL's memory. After, we don't need to keep the client-side buffers around.
             val buffers = IntArray(1)
@@ -716,7 +716,7 @@ class LessonSevenRenderer(
             cubeBuffer.limit(0)
         }
 
-        public override fun render() {
+        override fun render() {
             val stride = (POSITION_DATA_SIZE + NORMAL_DATA_SIZE + TEXTURE_COORDINATE_DATA_SIZE) * BYTES_PER_FLOAT
 
             // Pass in the position information
@@ -742,7 +742,7 @@ class LessonSevenRenderer(
             GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mActualCubeFactor * mActualCubeFactor * mActualCubeFactor * 36)
         }
 
-        public override fun release() {
+        override fun release() {
             // Delete buffers from OpenGL's memory
             val buffersToDelete = intArrayOf(mCubeBufferIdx)
             GLES20.glDeleteBuffers(buffersToDelete.size, buffersToDelete, 0)

@@ -84,7 +84,7 @@ class LessonOneRenderer : GLSurfaceView.Renderer {
 
                 0.5f, -0.25f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,
 
-                0.0f, 0.559016994f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f)
+                0.0f, 0.559017f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f)
 
         // This triangle is yellow, cyan, and magenta.
         val triangle2VerticesData = floatArrayOf(
@@ -94,7 +94,7 @@ class LessonOneRenderer : GLSurfaceView.Renderer {
 
                 0.5f, -0.25f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
 
-                0.0f, 0.559016994f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f)
+                0.0f, 0.559017f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f)
 
         // This triangle is white, gray, and black.
         val triangle3VerticesData = floatArrayOf(
@@ -104,7 +104,7 @@ class LessonOneRenderer : GLSurfaceView.Renderer {
 
                 0.5f, -0.25f, 0.0f, 0.5f, 0.5f, 0.5f, 1.0f,
 
-                0.0f, 0.559016994f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f)
+                0.0f, 0.559017f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f)
 
         // Initialize the buffers.
         mTriangle1Vertices = ByteBuffer.allocateDirect(triangle1VerticesData.size * mBytesPerFloat)

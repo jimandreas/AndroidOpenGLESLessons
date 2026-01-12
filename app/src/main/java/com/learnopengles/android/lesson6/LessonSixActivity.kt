@@ -9,7 +9,6 @@ import android.app.Dialog
 import android.content.Context
 import android.opengl.GLES20
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.View
 import com.learnopengles.android.R
 
@@ -29,7 +28,7 @@ class LessonSixActivity : Activity() {
         mGLSurfaceView = findViewById<View>(R.id.gl_surface_view) as LessonSixGLSurfaceView
 
         // Check if the system supports OpenGL ES 2.0.
-        val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val activityManager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
         val configurationInfo = activityManager.deviceConfigurationInfo
         val supportsEs2 = configurationInfo.reqGlEsVersion >= 0x20000
 
@@ -37,12 +36,10 @@ class LessonSixActivity : Activity() {
             // Request an OpenGL ES 2.0 compatible context.
             mGLSurfaceView.setEGLContextClientVersion(2)
 
-            val displayMetrics = DisplayMetrics()
-            windowManager.defaultDisplay.getMetrics(displayMetrics)
 
             // Set the renderer to our demo renderer, defined below.
             mRenderer = LessonSixRenderer(this)
-            mGLSurfaceView.setRenderer(mRenderer!!, displayMetrics.density)
+            mGLSurfaceView.setRenderer(mRenderer!!, resources.displayMetrics.density)
         } else {
             // This is where you could create an OpenGL ES 1.x compatible
             // renderer if you wanted to support both ES 1 and ES 2.
@@ -115,6 +112,7 @@ class LessonSixActivity : Activity() {
         }
     }
 
+    @Deprecated("Deprecated in API level 8", ReplaceWith("DialogFragment"))
     override fun onCreateDialog(id: Int): Dialog? {
         val dialog: Dialog?
 
