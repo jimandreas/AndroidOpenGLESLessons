@@ -39,8 +39,7 @@ public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
 			{
 				// This is where you could create an OpenGL ES 1.x compatible
 				// renderer if you wanted to support both ES 1 and ES 2.
-				return;
-			}			
+            }
 		}
 	}	
 	

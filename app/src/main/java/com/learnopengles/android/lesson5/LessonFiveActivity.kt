@@ -2,7 +2,6 @@ package com.learnopengles.android.lesson5
 
 import android.app.Activity
 import android.app.ActivityManager
-import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import com.learnopengles.android.R

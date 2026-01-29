@@ -2,7 +2,6 @@ package com.learnopengles.android.lesson8
 
 import android.app.Activity
 import android.app.ActivityManager
-import android.content.Context
 import android.os.Bundle
 
 class LessonEightActivity : Activity() {

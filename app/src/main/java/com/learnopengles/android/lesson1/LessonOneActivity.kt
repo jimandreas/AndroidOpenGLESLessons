@@ -2,7 +2,6 @@ package com.learnopengles.android.lesson1
 
 import android.app.Activity
 import android.app.ActivityManager
-import android.content.Context
 import android.opengl.GLSurfaceView
 import android.os.Bundle
 

@@ -240,7 +240,7 @@ class LogWriter extends Writer {
 /**
  * An interface for customizing the eglCreateContext and eglDestroyContext
  * calls.
- * 
+ * <p>
  * 
  * This interface must be implemented by clients wishing to call
  * {@link GLWallpaperService#setEGLContextFactory(EGLContextFactory)}
@@ -272,7 +272,7 @@ class DefaultContextFactory implements EGLContextFactory {
 /**
  * An interface for customizing the eglCreateWindowSurface and eglDestroySurface
  * calls.
- * 
+ * <p>
  * 
  * This interface must be implemented by clients wishing to call
  * {@link GLWallpaperService#setEGLWindowSurfaceFactory(EGLWindowSurfaceFactory)}
