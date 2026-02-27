@@ -1,9 +1,7 @@
 [versions]
-agp = "9.0.0"
-kotlin = "2.3.0"
+agp = "9.0.1"
+kotlin = "2.3.10"
 timber = "5.0.1"
-activityCompose = "1.12.3"
-composeBom = "2026.01.01"
 
 # Testing
 junit = "4.13.2"
@@ -15,17 +13,6 @@ espresso = "3.7.0"
 [libraries]
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
-
 
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }

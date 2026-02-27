@@ -302,7 +302,7 @@ class LessonSevenRenderer(
                         mLessonSevenActivity.updateStrideStatus(mUseStride)
 
                         mActualCubeFactor = mRequestedCubeFactor
-                    } catch (err: OutOfMemoryError) {
+                    } catch (_: OutOfMemoryError) {
                         if (mCubes != null) {
                             mCubes!!.release()
                             mCubes = null
@@ -311,7 +311,7 @@ class LessonSevenRenderer(
                         Timber.e("Out of Memory Error")
                     }
                 }
-            } catch (e: OutOfMemoryError) {
+            } catch (_: OutOfMemoryError) {
                 Timber.e("Out of Memory Error")
             }
         }
@@ -645,13 +645,13 @@ class LessonSevenRenderer(
             GLES20.glGenBuffers(3, buffers, 0)
 
             GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, buffers[0])
-            GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubePositionsBuffer!!.capacity() * BYTES_PER_FLOAT, cubePositionsBuffer, GLES20.GL_STATIC_DRAW)
+            GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubePositionsBuffer.capacity() * BYTES_PER_FLOAT, cubePositionsBuffer, GLES20.GL_STATIC_DRAW)
 
             GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, buffers[1])
-            GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubeNormalsBuffer!!.capacity() * BYTES_PER_FLOAT, cubeNormalsBuffer, GLES20.GL_STATIC_DRAW)
+            GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubeNormalsBuffer.capacity() * BYTES_PER_FLOAT, cubeNormalsBuffer, GLES20.GL_STATIC_DRAW)
 
             GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, buffers[2])
-            GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubeTextureCoordinatesBuffer!!.capacity() * BYTES_PER_FLOAT, cubeTextureCoordinatesBuffer,
+            GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubeTextureCoordinatesBuffer.capacity() * BYTES_PER_FLOAT, cubeTextureCoordinatesBuffer,
                     GLES20.GL_STATIC_DRAW)
 
             GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, 0)
@@ -707,7 +707,7 @@ class LessonSevenRenderer(
             GLES20.glGenBuffers(1, buffers, 0)
 
             GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, buffers[0])
-            GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubeBuffer!!.capacity() * BYTES_PER_FLOAT, cubeBuffer, GLES20.GL_STATIC_DRAW)
+            GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubeBuffer.capacity() * BYTES_PER_FLOAT, cubeBuffer, GLES20.GL_STATIC_DRAW)
 
             GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, 0)
 
