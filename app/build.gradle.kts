@@ -1,5 +1,4 @@
 import java.util.Properties
-import kotlin.apply
 
 val localProperties = Properties().apply {
     val file = rootProject.file("local.properties")
@@ -8,8 +7,6 @@ val localProperties = Properties().apply {
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
 }
 
 
